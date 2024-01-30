@@ -1,6 +1,7 @@
 import Queue.*;
 import Stack.*;
 import Deque.*;
+import Trees.BinarySearchTree;
 
 
 public class Main {
@@ -15,10 +16,31 @@ public class Main {
 //        System.out.println("-------------------------------------");
 //        System.out.println("-------------------------------------");
 
-        DequeTest();
+//        DequeTest();
+//
+//        System.out.println("-------------------------------------");
+//        System.out.println("-------------------------------------");
+
+        BstTest();
 
         System.out.println("-------------------------------------");
         System.out.println("-------------------------------------");
+    }
+
+    private static void BstTest() {
+        BinarySearchTree bst = BinarySearchTree.createTree(4, 0, 10);
+        System.out.println(bst.getRoot());
+        System.out.println("-------------------------------------");
+        System.out.println("-------------------------------------");
+        BinarySearchTree.inOrderSearch(bst.getRoot());
+        System.out.println("-------------------------------------");
+        BinarySearchTree.preOrderSearch(bst.getRoot());
+        System.out.println("-------------------------------------");
+        BinarySearchTree.postOrderSearch(bst.getRoot());
+        System.out.println("-------------------------------------");
+        System.out.println(bst.min());
+        System.out.println(bst.max());
+
 
     }
 
