@@ -2,7 +2,7 @@ package Queue;
 
 import java.util.*;
 
-public class ArrayQueue<T> extends Coda<T> {
+public class ArrayQueue<T> implements Coda<T> {
     List<T> queue = new ArrayList<>();
     public Coda<T> enqueue(T elem){
         queue.add(elem);

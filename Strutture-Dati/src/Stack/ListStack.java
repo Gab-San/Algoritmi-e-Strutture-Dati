@@ -1,7 +1,7 @@
 package Stack;
 import Nodes.Node;
 
-public class ListStack<T> extends PStack<T> {
+public class ListStack<T> implements PStack<T> {
     private Node<T> stackPointer = null;
     public PStack<T> push(T elem){
         if(stackPointer == null){

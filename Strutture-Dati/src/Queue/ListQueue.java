@@ -2,7 +2,7 @@ package Queue;
 
 import Nodes.Node;
 
-public class ListQueue<T> extends Coda<T> {
+public class ListQueue<T> implements Coda<T> {
     private Node<T> queueHead;
     private Node<T> queueTail;
 

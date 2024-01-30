@@ -6,7 +6,7 @@ package Stack;
  * @param <T>
  */
 
-public abstract class PStack<T> {
+public interface PStack<T> {
     /**
      * Tale funzione implementa la push dello stack che permette di
      * aggiungere elementi in cima allo stack (pila)

@@ -1,21 +1,55 @@
-import Queue.ArrayQueue;
-import Queue.Coda;
-import Queue.ListQueue;
+import Queue.*;
 import Stack.*;
+import Deque.*;
 
 
 public class Main {
     public static void main(String[] args){
-        StackTest();
+//        StackTest();
+//
+//        System.out.println("-------------------------------------");
+//        System.out.println("-------------------------------------");
+//
+//        QueueTest();
+//
+//        System.out.println("-------------------------------------");
+//        System.out.println("-------------------------------------");
+
+        DequeTest();
 
         System.out.println("-------------------------------------");
         System.out.println("-------------------------------------");
 
-        QueueTest();
+    }
+
+    private static void DequeTest(){
+        MyDeque<Integer> integerDeque = new ArrayDeque<Integer>();
+        System.out.println(integerDeque.isEmpty());
+        integerDeque.pushFront(10).pushBack(20).pushFront(40).pushBack(30);
+        System.out.println(integerDeque);
+        integerDeque.popBack();
+        integerDeque.popFront();
+        System.out.println(integerDeque);
+        System.out.println(integerDeque.isEmpty());
+        integerDeque.popFront();
+        System.out.println(integerDeque.popFront());
+        integerDeque.popFront();
+        System.out.println(integerDeque.popBack());
 
         System.out.println("-------------------------------------");
-        System.out.println("-------------------------------------");
 
+        integerDeque = new ListDeque<>();
+        System.out.println(integerDeque.isEmpty());
+        integerDeque.pushFront(10).pushBack(20).pushFront(40).pushBack(30);
+        System.out.println(integerDeque);
+        integerDeque.popBack();
+        integerDeque.popFront();
+        System.out.println(integerDeque);
+        System.out.println(integerDeque.isEmpty());
+        integerDeque.popBack();
+        System.out.println(integerDeque.popBack());
+        integerDeque.popFront();
+        System.out.println(integerDeque.popBack());
 
     }
 
@@ -69,4 +103,6 @@ public class Main {
         System.out.println(integerStack.pop());
         System.out.println(integerStack);
     }
+
+
 }

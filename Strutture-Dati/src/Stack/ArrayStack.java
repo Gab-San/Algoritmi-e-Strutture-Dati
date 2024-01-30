@@ -1,7 +1,7 @@
 package Stack;
 import java.util.*;
 
-public class ArrayStack<T> extends PStack<T> {
+public class ArrayStack<T> implements PStack<T> {
     private List<T> stack = new ArrayList<>();
 
     public PStack<T> push(T elem) {

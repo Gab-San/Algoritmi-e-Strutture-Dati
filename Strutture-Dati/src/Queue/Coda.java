@@ -5,7 +5,7 @@ package Queue;
  * Si ipotizza la memoria sia illimitata.
  * @param <T>
  */
-public abstract class Coda<T> {
+public interface Coda<T> {
     /**
      * Adds an element to the end of the queue
      * @param elem to add to the queue
