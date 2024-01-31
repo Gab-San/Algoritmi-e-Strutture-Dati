@@ -4,6 +4,15 @@
 
 #define N 20
 
+/*
+    This algorithm divides the array into subarrays recursively and it order the smaller subarrays.
+    At the last recursive call each subarray will than be merged back into the first array.
+    There's no real merging, but in the merge method requires the memory allocation of other arrays.
+    
+    The complexity of this algorithm is O(nlogn) 
+*/
+
+
 int Max(int* array, int len){
     int max = array[0];
     for(int i = 1; i < len; i++){
@@ -84,7 +93,8 @@ void Print_Array(int *array){
 
 
 int main(){
-    srand(time(NULL));
+    time_t t;
+    srand((unsigned) time(&t));
     int array[N];
     // Seleziono numeri da 1 a 100
     for(int i = 0; i < N; i++){
@@ -94,4 +104,6 @@ int main(){
     Print_Array(array);
     Merge_Sort(array,0, N-1);
     Print_Array(array);
+
+    return 0;
 }
