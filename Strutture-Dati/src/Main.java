@@ -28,7 +28,7 @@ public class Main {
     }
 
     private static void BstTest() {
-        BinarySearchTree bst = BinarySearchTree.createTree(4, 0, 10);
+        BinarySearchTree bst = BinarySearchTree.createTree(10, 0, 50);
         System.out.println(bst.getRoot());
         System.out.println("-------------------------------------");
         System.out.println("-------------------------------------");
@@ -40,6 +40,13 @@ public class Main {
         System.out.println("-------------------------------------");
         System.out.println(bst.min());
         System.out.println(bst.max());
+        System.out.println(bst.successor(bst.getRoot()));
+        System.out.println("-------------------------------------");
+        System.out.println("-------------------------------------");
+        bst.delete(bst.getRoot().getLeft().getRight());
+        BinarySearchTree.inOrderSearch(bst.getRoot());
+        System.out.println("-------------------------------------");
+        BinarySearchTree.preOrderSearch(bst.getRoot());
 
 
     }

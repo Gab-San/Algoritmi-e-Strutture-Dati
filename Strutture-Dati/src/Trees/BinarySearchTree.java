@@ -148,4 +148,77 @@ public class BinarySearchTree {
         return curr;
     }
 
+    /**
+     * Il successore di un elemento x è l'elemento y con la più piccola chiave y.key > x.key
+     * presente nel BST
+     * @param elem di cui cercare il successore
+     * @return il successore
+     */
+    public TreeNode successor(TreeNode elem){
+        // Cerca il minimo del sottoalbero destro; ovvero il più piccolo nodo
+        // a destra dell'elemento analizzato
+        if(elem.getRight() != null){
+            return min(elem.getRight());
+        }
+        // Risale nell'albero finchè non incontra un nodo che ha soli figli sinistri
+        // oppure la radice
+        TreeNode parent = elem.getParent();
+        while(parent != null && parent.getRight() == elem){
+            elem = parent;
+            parent = parent.getParent();
+        }
+        return parent;
+    }
+
+
+    /**
+     * 1. Se un elemento non ha figli allora è una foglia e può essere deallocato
+     * 2. Se l'elemento ha un figlio allora dev'essere sostituito dal figlio all'interno dell'albero
+     * 3. Se l'elemento ha due figli allora si salva la chiave del successore e si elimina il successore; il successore
+     * di un elemento con due figli non ha mai il figlio sinistro --> CASO 2
+     * @param selectedNode il nodo da eliminare
+     * @return l'albero
+     */
+    public BinarySearchTree delete(TreeNode selectedNode){
+        TreeNode nodeToDelete, subTree = null;
+        // CASO 1 e 2: L'elemento da cancellare non ha figli, oppure ne ha solo uno
+        if (selectedNode.getLeft() == null || selectedNode.getRight() == null){
+            nodeToDelete = selectedNode;
+        } else {
+        // Caso 3: sono presenti entrambi i figli
+            nodeToDelete = this.successor(selectedNode);
+        }
+
+        // Selezione del sottoalbero da spostare
+        if (nodeToDelete.getLeft() != null){
+            subTree = nodeToDelete.getLeft();
+        } else {
+            subTree = nodeToDelete.getRight();
+        }
+
+        // NON SI È NEL CASO 1: vi è almeno un figlio, allora si procede
+        // a impostare il padre del nuovo sottoalbero
+        if (subTree != null){
+            subTree.setParent(nodeToDelete.getParent());
+        }
+
+        // Se l'elemento selezionato è la radice
+        if (nodeToDelete.getParent() == null){
+            this.root = subTree;
+        } else if(nodeToDelete == nodeToDelete.getParent().getLeft()) {
+        // Se il nodo da eliminare è il figlio sinistro
+        // allora lega al padre il figlio del nodo da eliminare
+            nodeToDelete.getParent().setLeft(subTree);
+        } else {
+        // Se il nodo da eliminare è il figlio destro
+        // allora lo sostituisce con il figlio del nodo da eliminare
+            nodeToDelete.getParent().setRight(subTree);
+        }
+
+        if(nodeToDelete != selectedNode){
+            selectedNode.setKey(nodeToDelete.getKey());
+        }
+        return this;
+    }
+
 }
