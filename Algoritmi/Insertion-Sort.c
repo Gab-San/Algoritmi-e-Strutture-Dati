@@ -8,7 +8,7 @@ void Insertion_Sort(int *array){
     int key;
 
     // Loop che controlla tutti gli elementi dell'array tranne il primo
-    for(int j =  1; i < N; j++){
+    for(int j = 1; i < N; j++){
         key = array[j];
         int i = j - 1;
         // Alla prima iterazione i = 0, j = 1, ossia si scambiano gli elementi 0 e 1
@@ -36,12 +36,11 @@ void Print_Array(int *array){
 
 
 int main(){
-    int time;
-    seed(time);
+    srand(time(NULL))
     int array[N];
     // Seleziono numeri da 1 a 100
     for(int i = 0; i < N; i++){
-        array[i] = randi() % 100 + 1; 
+        array[i] = rand() % 100 + 1; 
     }
 
     Print_Array(array);

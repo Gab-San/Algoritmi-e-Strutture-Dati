@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <time.h>
-#include <rand.h>
 #include <stdlib.h>
 
 #define N 20
 
-void Max(int* array, int len){
+int Max(int* array, int len){
     int max = array[0];
-    for(int i = 1, i < len; i++){
+    for(int i = 1; i < len; i++){
         if(array[i] > max){
             max = array[i];
         }
@@ -85,15 +84,14 @@ void Print_Array(int *array){
 
 
 int main(){
-    int time;
-    seed(time);
+    srand(time(NULL));
     int array[N];
     // Seleziono numeri da 1 a 100
     for(int i = 0; i < N; i++){
-        array[i] = randi() % 100 + 1; 
+        array[i] = rand() % 100 + 1; 
     }
 
     Print_Array(array);
-    Insertion_Sort(array);
+    Merge_Sort(array,0, N-1);
     Print_Array(array);
 }
